@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./style/main.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>GimnStar - Instructors</title>
+</head>
+
+<body>
+  <section class="header">
+    <div class="navigation">
+      <div class="toggle"></div>
+      <a href="./index.html" class="logo logoHide">
+        <h2 id="logoText">GIMNSTAR</h2>
+      </a>
+      <ul>
+        <li>
+          <a href="./instructors.html">
+            <span class="icon"><i class="fas fa-chalkboard-teacher"></i></span>
+            <span class="title">Instructors</span>
+          </a>
+        </li>
+        <li>
+          <a href="./clients.html">
+            <span class="icon"><i class="fas fa-running"></i></span>
+            <span class="title">Clients</span>
+          </a>
+        </li>
+        <li>
+          <a href="./subscriptions.html">
+            <span class="icon"><i class="fas fa-ticket-alt"></i></span>
+            <span class="title">Subscriptions</span>
+          </a>
+        </li>
+        <li>
+          <a href="./activities.html">
+            <span class="icon"><i class="far fa-list-alt"></i></span>
+            <span class="title">Activities</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="instructorsBackgroundImage" id="blur">
+    <div class="overlay">
+      <h1>Instructors</h1>
+      <div class="tables">
+        <div class="instructors">
+          <div class="heading">
+            <h2 class="entity">Instructors</h2>
+            <a href="#" class="btn" id="viewAll">View all</a>
+            <a href="#" class="btn" id="add">Add</a>
+          </div>
+          <table class="instructorsData" id="dataOfInstructors">
+            <thead>
+              <td id="id">ID</td>
+              <td>Name</td>
+              <td>Age</td>
+              <td>Email</td>
+              <td>Experience</td>
+              <td>Options</td>
+            </thead>
+            <tr>
+              <td id="idValue">1</td>
+              <td>John Doe</td>
+              <td>42</td>
+              <td>john.doe@yahoo.com</td>
+              <td>10</td>
+              <td>
+                <i id="view" class="far fa-eye"></i>
+                <i id="edit ${id}" class="far fa-edit" onclick="updateInstructorData(this);"></i>
+                <i id="delete ${id}" class="far fa-trash-alt" onclick="removeInstructorData(this);"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" id="popup">
+    <div class="title">Add Instructor</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" placeholder="Enter your name" id="name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" placeholder="Enter your age" id="age" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" id="email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Experience</span>
+            <input type="text" placeholder="Enter your experience" id="experience" required>
+          </div>
+        </div>
+        <div class="buttons">
+          <a href="#" class="btn" id="submit">Submit</a>
+          <a href="#" class="btn" id="cancel">Cancel</a>
+        </div>
+      </form>
+    </div>
+    <p id="successfullMessage"></p>
+  </div>
+
+  <div class="container" id="popupDelete">
+    <div class="title">Delete Instructor</div>
+    <p>Are you sure you want to delete this instructor?</p>
+    <div class="buttons">
+      <a href="#" class="btn" id="delete">Delete</a>
+      <a href="#" class="btn" id="cancelDelete">Cancel</a>
+    </div>
+    <p id="successfullDeletedMessage"></p>
+  </div>
+
+  <div class="container" id="popupUpdate">
+    <div class="title">Update Instructor</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" placeholder="Enter your name" id="updateName" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" placeholder="Enter your age" id="updateAge" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" id="updateEmail" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Experience</span>
+            <input type="text" placeholder="Enter your experience" id="updateExperience" required>
+          </div>
+        </div>
+        <div class="buttons">
+          <a href="#" class="btn" id="update">Update</a>
+          <a href="#" class="btn" id="cancelUpdate">Cancel</a>
+        </div>
+      </form>
+    </div>
+    <p id="successfullUpdatedMessage"></p>
+  </div>
+
+
+
+  <section class="footer">
+    <ul class="sci">
+      <li><a href="#"><img src="./images/facebook.png" alt="facebookLogo"></a></li>
+      <li><a href="#"><img src="./images/twitter.png" alt="twitterLogo"></a></li>
+      <li><a href="#"><img src="./images/instagram.png" alt="instagramLogo"></a></li>
+    </ul>
+    <h4 class="copyright">@2021 <a href="#">GimnStar</a>
+    </h4>
+  </section>
+  <script src="./scripts/script.js"></script>
+  <script src="./scripts/utils.js"></script>
+  <script src="./scripts/instructors.js"></script>
+  <script src="./scripts/services/instructorsService.js"></script>
+
+</body>
+
+</html>

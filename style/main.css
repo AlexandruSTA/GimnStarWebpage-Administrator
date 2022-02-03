@@ -384,6 +384,21 @@ section {
   text-decoration: none;
 }
 
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(252, 252, 252, 0.9);
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(189, 186, 186, 0.7);
+}
+
 @media (max-width: 767px) {
   .header .menu a {
     font-size: 12px;
